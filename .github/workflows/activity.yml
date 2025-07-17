@@ -1,0 +1,29 @@
+name: Daily Activity Commits
+
+on:
+  schedule:
+    - cron: '12 7 * * *'
+    - cron: '38 10 * * *'
+    - cron: '4 14 * * *'
+    - cron: '26 17 * * *'
+    - cron: '51 20 * * *'
+
+jobs:
+  push-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Add timestamp
+        run: |
+          echo "Update at $(date)" >> activity-log.txt
+
+      - name: Commit and Push
+        run: |
+          git config user.name "Saad Ahmed"
+          git config user.email "your_email@example.com"
+          git add activity-log.txt
+          git commit -m "Update: $(date)" || echo "No changes to commit"
+          git push
+

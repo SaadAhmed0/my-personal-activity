@@ -21,8 +21,8 @@ jobs:
 
       - name: Commit and Push
         run: |
-          git config user.name "Saad Ahmed"
-          git config user.email "your_email@example.com"
+          git config user.name "SaadAhmed0"
+          git config user.email "saadahmedsiddiqui62@gmail.com"
           git add activity-log.txt
           git commit -m "Update: $(date)" || echo "No changes to commit"
           git push
